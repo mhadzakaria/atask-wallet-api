@@ -8,9 +8,11 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  Rails.application.routes.draw do
-    get "/price",      to: "stock_prices#price"
-    get "/prices",     to: "stock_prices#prices"
-    get "/price_all",  to: "stock_prices#price_all"
-  end  
+  get "/price",      to: "stock_prices#price"
+  get "/prices",     to: "stock_prices#prices"
+  get "/price_all",  to: "stock_prices#price_all"
+
+  post "/deposit",   to: "transactions#create_deposit"
+  post "/withdraw",  to: "transactions#create_withdraw"
+  post "/transfer",  to: "transactions#create_transfer"
 end
