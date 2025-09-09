@@ -7,3 +7,19 @@ class Wallet < ApplicationRecord
     incoming_transactions.sum(:amount) - outgoing_transactions.sum(:amount)
   end
 end
+
+# == Schema Information
+#
+# Table name: wallets
+#
+#  id              :integer          not null, primary key
+#  balance         :decimal(, )
+#  walletable_type :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  walletable_id   :integer          not null
+#
+# Indexes
+#
+#  index_wallets_on_walletable  (walletable_type,walletable_id)
+#
