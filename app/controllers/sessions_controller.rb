@@ -1,16 +1,19 @@
 class SessionsController < ApplicationController
+  before_action :authenticate!, only: :destroy
+
   def create
-    user = User.find_by(name: params[:name])
-    if user
-      session[:user_id] = user.id
-      render json: { message: "Signed in" }
+    user = User.find_by(email: params[:email])
+    if user&.authenticate(params[:password])
+      user.update(access_token: SecureRandom.hex(20))
+      render json: { access_token: user.access_token }
     else
       render json: { error: "User not found" }, status: :unauthorized
     end
   end
 
   def destroy
-    session.delete(:user_id)
+    user = current_user
+    user.update(access_token: nil) if user
     render json: { message: "Signed out" }
   end
 end

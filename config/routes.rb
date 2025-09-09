@@ -15,4 +15,7 @@ Rails.application.routes.draw do
   post "/deposit",   to: "transactions#create_deposit"
   post "/withdraw",  to: "transactions#create_withdraw"
   post "/transfer",  to: "transactions#create_transfer"
+
+  post "/sign_in", to: "sessions#create"
+  delete "/sign_out", to: "sessions#destroy"
 end

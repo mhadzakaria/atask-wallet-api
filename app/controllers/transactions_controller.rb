@@ -1,4 +1,6 @@
 class TransactionsController < ApplicationController
+  before_action :authenticate!
+
   def create_deposit
     ActiveRecord::Base.transaction do
       target_wallet = find_wallet(params[:target_type], params[:target_id])
