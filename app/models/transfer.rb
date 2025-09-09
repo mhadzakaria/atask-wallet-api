@@ -9,11 +9,11 @@ end
 #
 #  id               :integer          not null, primary key
 #  amount           :decimal(, )
-#  transaction_type :string
+#  type             :string
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
-#  source_wallet_id :integer          not null
-#  target_wallet_id :integer          not null
+#  source_wallet_id :integer
+#  target_wallet_id :integer
 #
 # Indexes
 #
@@ -22,6 +22,6 @@ end
 #
 # Foreign Keys
 #
-#  source_wallet_id  (source_wallet_id => source_wallets.id)
-#  target_wallet_id  (target_wallet_id => target_wallets.id)
+#  source_wallet_id  (source_wallet_id => wallets.id)
+#  target_wallet_id  (target_wallet_id => wallets.id)
 #
