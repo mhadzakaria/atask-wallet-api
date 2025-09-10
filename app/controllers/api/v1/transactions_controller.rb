@@ -37,11 +37,11 @@ module Api
         @find_wallet_cache ||= {}
         @find_wallet_cache["#{type}-#{id}"] ||= case type.downcase
                                                 when 'user'
-                                                  User.find_by(id: id)&.wallet
+                                                  User.find_by(id: id)&.my_wallet
                                                 when 'team'
-                                                  Team.find_by(id: id)&.wallet
+                                                  Team.find_by(id: id)&.my_wallet
                                                 when 'stock'
-                                                  Stock.find_by(id: id)&.wallet
+                                                  Stock.find_by(id: id)&.my_wallet
                                                 end
       end
     end
