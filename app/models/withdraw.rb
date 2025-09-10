@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Withdraw < Transaction
   validates :source_wallet, presence: true
   validates :target_wallet, absence: true

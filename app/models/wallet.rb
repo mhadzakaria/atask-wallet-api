@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Wallet < ApplicationRecord
   belongs_to :walletable, polymorphic: true
   has_many :outgoing_transactions, class_name: "Transaction", foreign_key: :source_wallet_id
