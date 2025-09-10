@@ -19,9 +19,5 @@ module Modules
       build_wallet.save
       wallet
     end
-
-    def generate_api_token
-      self.access_token = SecureRandom.hex(20)
-    end
   end
 end

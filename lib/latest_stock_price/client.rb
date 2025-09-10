@@ -9,7 +9,7 @@ module LatestStockPrice
     def initialize
       @headers = {
         "X-RapidAPI-Host" => "latest-stock-price.p.rapidapi.com",
-        "X-RapidAPI-Key"  => ENV["RAPIDAPI_KEY"] # API key kamu taruh di ENV
+        "X-RapidAPI-Key"  => ENV["RAPIDAPI_KEY"]
       }
     end
 
