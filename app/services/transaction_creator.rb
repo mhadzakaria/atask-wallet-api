@@ -1,6 +1,16 @@
 class TransactionCreator
   def self.call(transaction_params)
     ActiveRecord::Base.transaction do
+      if transaction_params[:type].in?(['Withdraw', 'Transfer'])
+        source_wallet = transaction_params[:source_wallet]
+        amount = transaction_params[:amount]
+        unless source_wallet.balance.to_f >= amount.to_f
+          transaction = Transaction.new
+          transaction.errors.add(:amount, "Insufficient funds in source wallet")
+          raise ActiveRecord::RecordInvalid.new(transaction)
+        end
+      end
+
       transaction = Transaction.create!(transaction_params)
 
       # Update source wallet if present
