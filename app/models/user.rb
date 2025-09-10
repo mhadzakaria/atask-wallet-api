@@ -1,21 +1,14 @@
-class User < ApplicationRecord
-  has_secure_password
+# frozen_string_literal: true
 
-  has_one :wallet, as: :walletable, dependent: :destroy
+# Represents a user in the system.
+class User < ApplicationRecord
+  include Modules::Walletable
+
+  has_secure_password
 
   before_create :generate_api_token
 
-  def my_wallet
-    return create_new_wallet if wallet.blank?
-
-    wallet
-  end
-
   private
-
-  def create_new_wallet
-    build_wallet.save
-  end
 
   def generate_api_token
     self.access_token = SecureRandom.hex(20)

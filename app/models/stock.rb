@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class Stock < ApplicationRecord
-  has_one :wallet, as: :walletable, dependent: :destroy
+  include Modules::Walletable
 end
 
 # == Schema Information
