@@ -19,7 +19,7 @@ end
 # Table name: wallets
 #
 #  id              :integer          not null, primary key
-#  balance         :decimal(, )
+#  balance         :decimal(, )      default(0.0)
 #  last_sync_at    :datetime
 #  walletable_type :string           not null
 #  created_at      :datetime         not null

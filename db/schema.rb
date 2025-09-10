@@ -44,7 +44,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_09_08_174958) do
   end
 
   create_table "wallets", force: :cascade do |t|
-    t.decimal "balance"
+    t.decimal "balance", default: "0.0"
     t.string "walletable_type", null: false
     t.integer "walletable_id", null: false
     t.datetime "last_sync_at"

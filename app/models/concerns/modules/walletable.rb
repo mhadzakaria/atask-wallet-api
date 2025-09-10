@@ -9,20 +9,19 @@ module Modules
       has_one :wallet, as: :walletable, dependent: :destroy
     end
 
-    class << self
-      def my_wallet
-        return create_new_wallet if wallet.blank?
+    def my_wallet
+      return create_new_wallet if wallet.blank?
 
-        wallet
-      end
+      wallet
+    end
 
-      def create_new_wallet
-        build_wallet.save
-      end
+    def create_new_wallet
+      build_wallet.save
+      wallet
+    end
 
-      def generate_api_token
-        self.access_token = SecureRandom.hex(20)
-      end
+    def generate_api_token
+      self.access_token = SecureRandom.hex(20)
     end
   end
 end
