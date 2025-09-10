@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
       post '/sign_in', to: 'sessions#create'
       delete '/sign_out', to: 'sessions#destroy'
+
+      get '/wallets', to: 'wallets#show'
     end
   end
 end
