@@ -123,6 +123,23 @@ All API endpoints are prefixed with `/api/v1`.
               --form target_id=1 \
               --form amount=1000
         ```
+    *  **Example Response**
+        ```json
+            {
+                "id": 21,
+                "type": "Deposit",
+                "amount": "500.0",
+                "created_at": "2025-09-10T22:11:39.505Z",
+                "source_wallet": null,
+                "target_wallet": {
+                    "id": 44,
+                    "balance": "500.0",
+                    "owner_type": "User",
+                    "owner_id": 1,
+                    "owner_name": "Ahmad Zakaria"
+                }
+            }
+        ```
 
 *   `POST /api/v1/withdraw`: Create a withdraw transaction.
     *   **Parameters**:
@@ -137,6 +154,23 @@ All API endpoints are prefixed with `/api/v1`.
               --form source_type=User \
               --form source_id=1 \
               --form amount=500
+        ```
+    *  **Example Response**
+        ```json
+            {
+                "id": 22,
+                "type": "Withdraw",
+                "amount": "159.0",
+                "created_at": "2025-09-10T22:14:48.519Z",
+                "source_wallet": {
+                    "id": 44,
+                    "balance": "341.0",
+                    "owner_type": "User",
+                    "owner_id": 1,
+                    "owner_name": "Ahmad Zakaria"
+                },
+                "target_wallet": null
+            }
         ```
 
 *   `POST /api/v1/transfer`: Create a transfer transaction.
@@ -156,4 +190,27 @@ All API endpoints are prefixed with `/api/v1`.
               --form target_type=Team \
               --form target_id=1 \
               --form amount=250
+        ```
+    *  **Example Response**
+        ```json
+            {
+                "id": 23,
+                "type": "Transfer",
+                "amount": "159.0",
+                "created_at": "2025-09-10T22:16:06.944Z",
+                "source_wallet": {
+                    "id": 44,
+                    "balance": "182.0",
+                    "owner_type": "User",
+                    "owner_id": 1,
+                    "owner_name": "Ahmad Zakaria"
+                },
+                "target_wallet": {
+                    "id": 11,
+                    "balance": "159.0",
+                    "owner_type": "Team",
+                    "owner_id": 1,
+                    "owner_name": "Dietrich, Hane and Trantow"
+                }
+            }
         ```
