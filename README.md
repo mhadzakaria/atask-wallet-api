@@ -33,7 +33,7 @@ This is a Rails API that provides wallet management and stock price information(
     ```
 3.  Run seeds file:
     ```bash
-    rails db:seeds
+    rails db:seed
     ```
 
 ## How to run the application
@@ -86,21 +86,39 @@ All API endpoints are prefixed with `/api/v1`.
 #### Stock Prices
 
 *   `GET /api/v1/price?symbol=AAPL`: Get the price of a single stock. (Deprecated: Data sourced from https://latest-stock-price.p.rapidapi.com)
-    * Last response:
+    * **CURL**
+        ```bash
+            curl --request GET \
+              --url 'http://localhost:3000/api/v1/price?symbol=AAPL' \
+              --header 'content-type: multipart/form-data'
+        ```
+    * **Last response:**
         ```json
             {
                 "message": "Endpoint '/price' does not exist"
             }
         ```
 *   `GET /api/v1/prices?symbols=AAPL,GOOG`: Get the prices of multiple stocks. (Deprecated: Data sourced from https://latest-stock-price.p.rapidapi.com)
-    * Last response:
+    * **CURL**
+        ```bash
+            curl --request GET \
+              --url 'http://localhost:3000/api/v1/prices?symbols=AAPL,GOOG' \
+              --header 'content-type: multipart/form-data'
+        ```
+    * **Last response:**
         ```json
             {
                 "message": "Endpoint '/prices' does not exist"
             }
         ```
 *   `GET /api/v1/price_all`: Get the prices of all available stocks. (Deprecated: Data sourced from https://latest-stock-price.p.rapidapi.com)
-    * Last response:
+    * **CURL**
+        ```bash
+            curl --request GET \
+              --url 'http://localhost:3000/api/v1/price_all' \
+              --header 'content-type: multipart/form-data'
+        ```
+    * **Last response:**
         ```json
             {
                 "message": "Endpoint '/price_all' does not exist"
